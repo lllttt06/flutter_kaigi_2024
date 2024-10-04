@@ -1,13 +1,23 @@
 {
     "version": "0.1.0",
     "configurations": [
-      {
-        "name": "Run app",
-        "program": "${workspaceFolder}/packages/app/lib/main.dart",
-        "request": "launch",
-        "type": "dart",
-        "flutterMode": "debug"
-      }
+        {
+            "name": "Run app",
+            "program": "${workspaceFolder}/packages/app/lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug"
+        },
+        {
+            "name": "devtools_extension + simulated environment",
+            "cwd": "packages/devtools_ext",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--device-id=chrome",
+                "--dart-define=use_simulated_environment=true"
+            ],
+        }
     ]
   }
   
