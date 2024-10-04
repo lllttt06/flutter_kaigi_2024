@@ -1,0 +1,4 @@
+name: flutter_kaigi 
+
+environment:
+  sdk: 3.5.3
