@@ -1,0 +1,6 @@
+schema: packages/app/**/*.graphql
+documents: packages/app/**/*.graphql
+extensions:
+  language-service:
+    cache:
+      - packages/app/**/*.graphql

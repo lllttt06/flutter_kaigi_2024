@@ -10,7 +10,7 @@
         },
         {
             "name": "devtools_extension + simulated environment",
-            "cwd": "packages/devtools_ext",
+            "program": "${workspaceFolder}/packages/devtools_ext/lib/main.dart",
             "request": "launch",
             "type": "dart",
             "args": [

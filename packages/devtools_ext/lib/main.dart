@@ -1,3 +1,5 @@
+import 'package:devtools_ext/ui/feature_toggle/feature_toggle.dart';
+import 'package:devtools_ext/ui/graphql_cache/cache_inspector.dart';
 import 'package:devtools_extensions/devtools_extensions.dart';
 import 'package:flutter/material.dart';
 
@@ -39,8 +41,8 @@ class MyDevToolsExtension extends StatelessWidget {
           const Expanded(
             child: TabBarView(
               children: [
-                SizedBox(),
-                SizedBox(),
+                CacheInspector(),
+                FeatureToggle(),
               ],
             ),
           ),
