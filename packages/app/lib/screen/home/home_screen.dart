@@ -27,7 +27,6 @@ class GraphQLScreen extends HookWidget {
           ),
         ),
         child: (data) {
-          debugPrint('data: $data');
           return ListView.separated(
             itemCount: (data.pokemons?.length ?? 0),
             separatorBuilder: (context, index) => const Divider(),

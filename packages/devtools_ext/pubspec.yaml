@@ -20,12 +20,8 @@ dependencies:
   # For UI
   gap: 3.0.1
 
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
-
-  # For Lints
-  very_good_analysis: 6.0.0
+  app:
+    path: ../app
 
 flutter:
   uses-material-design: true
