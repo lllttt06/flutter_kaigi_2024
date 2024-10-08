@@ -20,6 +20,12 @@ class AppConnection {
       DevToolsExtKey.updateDioLoggerExtKey,
       args: {DevToolsExtKey.dioLoggerExtValueKey: enabled},
     );
+    extensionManager.showBannerMessage(
+      key: 'testkey',
+      type: 'warning',
+      message: 'test',
+      extensionName: 'flutterkaigi',
+    );
   }
 
   static Future<bool> fetchLoadingState() async {
