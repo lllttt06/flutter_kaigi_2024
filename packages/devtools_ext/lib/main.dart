@@ -1,5 +1,6 @@
 import 'package:devtools_ext/ui/feature_toggle/feature_toggle.dart';
 import 'package:devtools_ext/ui/graphql_cache/cache_inspector.dart';
+import 'package:devtools_ext/ui/test.dart';
 import 'package:devtools_extensions/devtools_extensions.dart';
 import 'package:flutter/material.dart';
 
@@ -14,7 +15,7 @@ class MyDevToolsExtension extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Column(
         children: [
           Align(
@@ -34,6 +35,12 @@ class MyDevToolsExtension extends StatelessWidget {
                     style: theme.textTheme.titleMedium,
                   ),
                 ),
+                Tab(
+                  child: Text(
+                    'Test',
+                    style: theme.textTheme.titleMedium,
+                  ),
+                ),
               ],
             ),
           ),
@@ -43,6 +50,7 @@ class MyDevToolsExtension extends StatelessWidget {
               children: [
                 CacheInspector(),
                 FeatureToggle(),
+                Test(),
               ],
             ),
           ),
