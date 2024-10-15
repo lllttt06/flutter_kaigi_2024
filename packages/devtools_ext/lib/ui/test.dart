@@ -1,5 +1,6 @@
 import 'package:devtools_extensions/devtools_extensions.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 class Test extends StatelessWidget {
   const Test({super.key});
@@ -20,21 +21,38 @@ class Test extends StatelessWidget {
           },
           child: Text('showBannerMessage'),
         ),
+        const Gap(12),
         OutlinedButton(
           onPressed: () {
             extensionManager.showNotification('message');
           },
           child: Text('showNotification'),
         ),
+        const Gap(12),
         OutlinedButton(
           onPressed: () {},
           child: Text('showNotification'),
         ),
+        const Gap(12),
         OutlinedButton(
           onPressed: () {
             extensionManager.showNotification('message');
           },
           child: Text('showNotification'),
+        ),
+        const Gap(12),
+        OutlinedButton(
+          onPressed: () {
+            serviceManager.performHotReload();
+          },
+          child: Text('hotReload'),
+        ),
+        const Gap(12),
+        OutlinedButton(
+          onPressed: () {
+            serviceManager.performHotRestart();
+          },
+          child: Text('hotReStart'),
         ),
       ],
     );
