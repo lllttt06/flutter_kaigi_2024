@@ -1,0 +1,43 @@
+# config.yaml
+name: flutterkaigi
+issueTracker: 'https://github.com/lllttt06/flutter_kaigi_2024/issues'
+version: 0.0.1
+materialIconCodePoint: '0xe0b1'
+requiresConnection: true
+
+
+flutter run -d chrome --dart-define=use_simulated_environment=true
+
+
+// packages/devtools_ext/lib/main.dart
+class MyToolsExtension extends StatelessWidget {
+  const MyToolsExtension({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return const DevToolsExtension(child: Placeholder());
+  }
+}
+
+
+// packages/app/lib/conponent/devtools_container.dart
+registerExtension(
+    // 'ext.' で始める
+    'ext.loadingState.fetch', 
+    (_, __) async {
+    final isLoading = ref.read(debugLoadingStateProvider);
+    return ServiceExtensionResponse.result(
+        jsonEncode({ 'loading': isLoading }),
+    );
+  },
+);
+
+
+// packages/devtools_ext/lib/api/app_connection.dart
+static Future<bool> fetchLoadingState() async {
+    // app で登録した method と同じ文字列を指定
+    final result = await serviceManager
+        .callServiceExtensionOnMainIsolate('ext.loadingState.fetch');
+    // app で登録した key と同じ文字列を指定
+    return result.json?['loading'] as bool;
+}
+
