@@ -5,6 +5,11 @@ version: 0.0.1
 materialIconCodePoint: '0xe0b1'
 requiresConnection: true
 
+flutter create --template app --platforms web devtools_ext
+flutter pub add devtools_extensions
+flutter pub add devtools_app_shared
+flutter pub add flutter_hooks
+
 
 flutter run -d chrome --dart-define=use_simulated_environment=true
 
@@ -15,6 +20,27 @@ class MyToolsExtension extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const DevToolsExtension(child: Placeholder());
+  }
+}
+
+
+class FeatureToggle extends HookWidget {
+  const FeatureToggle({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final enabled = useState(true);
+    return ListView(
+      children: [
+        SwitchListTile(
+          title: const Text('Loading State Toggle'),
+          value: enabled.value,
+          onChanged: (value) {
+            enabled.value = value;
+          },
+        ),
+      ],
+    );
   }
 }
 
