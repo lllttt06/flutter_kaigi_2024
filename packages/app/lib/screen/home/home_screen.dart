@@ -1,5 +1,4 @@
 import 'package:app/component/graphql_query_container.dart';
-import 'package:app/screen/detail/detail_screen.dart';
 import 'package:app/screen/home/home_screen_query.graphql.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -12,7 +11,7 @@ class GraphQLScreen extends HookWidget {
     final query = useQuery$pokemons();
     return Scaffold(
       appBar: AppBar(
-        title: GestureDetector(child: const Text('Pokemon')),
+        title: GestureDetector(child: const Text('Live Coding')),
       ),
       body: GraphQLQueryContainer(
         query: query,
@@ -38,21 +37,14 @@ class GraphQLScreen extends HookWidget {
                 );
               }
               return ListTile(
-                title: Text(pokemon.name ?? ''),
+                title: Text('index ${index}'),
                 leading: SizedBox(
                   width: 80,
                   height: 80,
-                  child: Image.network(pokemon.image ?? ''),
+                  child: Image.network(
+                      'https://picsum.photos/id/${25 + index}/400/400'),
                 ),
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          DetailScreen(id: pokemon.id, name: pokemon.name),
-                    ),
-                  );
-                },
+                onTap: () {},
               );
             },
           );
