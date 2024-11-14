@@ -11,7 +11,7 @@ class GraphQLScreen extends HookWidget {
     final query = useQuery$pokemons();
     return Scaffold(
       appBar: AppBar(
-        title: GestureDetector(child: const Text('Live Coding')),
+        title: GestureDetector(child: const Text('Demo App')),
       ),
       body: GraphQLQueryContainer(
         query: query,
