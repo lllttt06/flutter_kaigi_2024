@@ -1,10 +1,10 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:skeletonizer/skeletonizer.dart';
-import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 part 'graphql_query_container.g.dart';
 
@@ -76,7 +76,33 @@ class GraphQLQueryContainer<TParsed> extends HookConsumerWidget {
 
     if (isLoadingForDebug) {
       // ローディング状態
-      return onLoadingWidget ?? Skeletonizer(child: child(fakeData!));
+      return onLoadingWidget ??
+          Skeletonizer(
+              effect: ShimmerEffect.raw(
+                colors: Theme.of(context).brightness == Brightness.dark
+                    ? const [
+                        Color(0xFF303030),
+                        Color(0xFF303030),
+                        Color(0xFF5D5D5D),
+                        Color(0xFF303030),
+                        Color(0xFF303030),
+                      ]
+                    : const [
+                        Color(0xFFD8D8D8),
+                        Color(0xFFD8D8D8),
+                        Color(0xFFF2F2F2),
+                        Color(0xFFD8D8D8),
+                        Color(0xFFD8D8D8),
+                      ],
+                stops: const [
+                  0.0,
+                  0.35,
+                  0.5,
+                  0.65,
+                  1.0,
+                ],
+              ),
+              child: child(fakeData!));
     }
 
     if (result.hasException) {
@@ -94,7 +120,33 @@ class GraphQLQueryContainer<TParsed> extends HookConsumerWidget {
       return onEmptyWidget ?? const SizedBox();
     } else if (result.data == null && result.isLoading) {
       // ローディング状態
-      return onLoadingWidget ?? Skeletonizer(child: child(fakeData!));
+      return onLoadingWidget ??
+          Skeletonizer(
+              effect: ShimmerEffect.raw(
+                colors: Theme.of(context).brightness == Brightness.dark
+                    ? const [
+                        Color(0xFF303030),
+                        Color(0xFF303030),
+                        Color(0xFF5D5D5D),
+                        Color(0xFF303030),
+                        Color(0xFF303030),
+                      ]
+                    : const [
+                        Color(0xFFD8D8D8),
+                        Color(0xFFD8D8D8),
+                        Color(0xFFF2F2F2),
+                        Color(0xFFD8D8D8),
+                        Color(0xFFD8D8D8),
+                      ],
+                stops: const [
+                  0.0,
+                  0.35,
+                  0.5,
+                  0.65,
+                  1.0,
+                ],
+              ),
+              child: child(fakeData!));
     } else {
       onComplete?.call();
       return child(result.parsedData as TParsed);

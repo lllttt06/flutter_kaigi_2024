@@ -17,7 +17,7 @@ class GraphQLScreen extends HookWidget {
         query: query,
         fakeData: Query$pokemons(
           pokemons: List.generate(
-            10,
+            15,
             (index) => Query$pokemons$pokemons(
               id: index.toString(),
               name: 'AAAAAAAAAAAAAAAAAAA',
