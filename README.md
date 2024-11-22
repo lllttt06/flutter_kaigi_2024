@@ -1,4 +1,4 @@
-# flutter_kaigi
+# flutter_devtools_extension_sample
 
 A new Flutter project.
 
