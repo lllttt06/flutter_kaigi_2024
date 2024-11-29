@@ -1,6 +1,12 @@
 # flutter_devtools_extension_sample
 A sample repository of Flutter's [Devtools extensions](https://docs.flutter.dev/tools/devtools/extensions).
 
+
+
+https://github.com/user-attachments/assets/c69e0b02-49d7-4e12-bbfd-6c5db704e3f6
+
+
+
 ## Requirements
 - Flutter 3.24.3 or higher
 - Dart 3.5.3 or higher
