@@ -24,7 +24,7 @@ class DetailScreen extends HookWidget {
           pokemon: Query$detail$pokemon(
             id: 'id',
             name: name,
-            image: 'https://via.placeholder.com/$width',
+            image: 'https://picsum.photos/id/20/400/400',
             height: Query$detail$pokemon$height(minimum: '600', maximum: '600'),
             weight: Query$detail$pokemon$weight(minimum: '600', maximum: '600'),
             types: [''],

@@ -41401,9 +41401,9 @@ L(a){var s=t.Fu,r=A.R(new A.y(B.FV,new A.a3b(),s),!0,s.i("a0.E"))
 return A.aKP(new A.a3c(r),r.length,new A.a3d())}}
 A.a3b.prototype={
 $1(a){var s
-switch(a.a){case 0:s=new A.Ey([A.aRJ(),!1,new A.a39(),"Dio \u306e logger \u3092\u6709\u52b9\u5316"])
+switch(a.a){case 0:s=new A.Ey([A.aRJ(),!1,new A.a39(),"Enable Dio Logger"])
 break
-case 1:s=new A.Ey([A.aRK(),!1,new A.a3a(),"\u30ed\u30fc\u30c7\u30a3\u30f3\u30b0\u753b\u9762\u3092\u8868\u793a"])
+case 1:s=new A.Ey([A.aRK(),!1,new A.a3a(),"Show Loading UI"])
 break
 default:s=null}return s},
 $S:474}

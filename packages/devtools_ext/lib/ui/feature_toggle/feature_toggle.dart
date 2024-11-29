@@ -18,14 +18,14 @@ class FeatureToggle extends StatelessWidget {
         .map(
           (feature) => switch (feature) {
             _Features.dioLogger => (
-                title: 'Dio の logger を有効化',
+                title: 'Enable Dio Logger',
                 initialValue: false,
                 fetch: AppConnection.fetchDioLogger,
                 onChanged: (bool value) async =>
                     AppConnection.updateDioLogger(enabled: value),
               ),
             _Features.onLoading => (
-                title: 'ローディング画面を表示',
+                title: 'Show Loading UI',
                 initialValue: false,
                 fetch: AppConnection.fetchLoadingState,
                 onChanged: (bool value) async =>
