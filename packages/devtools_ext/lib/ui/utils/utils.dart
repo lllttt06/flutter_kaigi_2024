@@ -68,6 +68,7 @@ class Utils extends StatelessWidget {
                       "${workspaceRoots.ideWorkspaceRoots.first.toFilePath()}/packages/app/lib/screen/home/home_screen.dart"),
                   """
 import 'package:app/component/graphql_query_container.dart';
+import 'package:app/screen/detail/detail_screen.dart';
 import 'package:app/screen/home/home_screen_query.graphql.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -87,6 +88,7 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+
 class GraphQLScreen extends HookWidget {
   const GraphQLScreen({super.key});
 
@@ -95,7 +97,7 @@ class GraphQLScreen extends HookWidget {
     final query = useQuery\$pokemons();
     return Scaffold(
       appBar: AppBar(
-        title: GestureDetector(child: const Text('From DTD Manager')),
+        title: GestureDetector(child: const Text('Demo App')),
       ),
       body: GraphQLQueryContainer(
         query: query,
@@ -105,7 +107,7 @@ class GraphQLScreen extends HookWidget {
             (index) => Query\$pokemons\$pokemons(
               id: index.toString(),
               name: 'AAAAAAAAAAAAAAAAAAA',
-              image: 'https://via.placeholder.com/150',
+              image: 'https://picsum.photos/id/20/400/400',
             ),
           ),
         ),
@@ -121,14 +123,22 @@ class GraphQLScreen extends HookWidget {
                 );
               }
               return ListTile(
-                title: Text('index \${index}'),
+                title: Text(pokemon.name ?? ''),
                 leading: SizedBox(
                   width: 80,
                   height: 80,
-                  child: Image.network(
-                      'https://picsum.photos/id/\${25 + index}/400/400'),
+                  child: Image.network(pokemon.image ?? ''),
                 ),
-                onTap: () {},
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => DetailScreen(
+                        id: pokemon.id,
+                        name: pokemon.name,
+                      ),
+                    ),
+                  );
+                },
               );
             },
           );
