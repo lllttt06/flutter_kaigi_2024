@@ -19,3 +19,7 @@ You can also check `.tool-versions` file for the exact version of each tool.
 3. Run packages/app/main.dart to start the app.
 4. Open DevTools and navigate to the "flutterkaigi" tab.
 
+## Reference
+Here is my slides of Devtools extensions written in Japanese.
+
+https://speakerdeck.com/kokiyoshida/devtools-extensions-de-du-zi-no-devtool-wokai-fa-suru-flutterkaigi-2024
