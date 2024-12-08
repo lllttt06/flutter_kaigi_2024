@@ -39,7 +39,7 @@ class Utils extends StatelessWidget {
                 final content =
                     await dtdManager.connection.value!.readFileAsString(
                   Uri.file(
-                      "${workspaceRoots.ideWorkspaceRoots.first.toFilePath()}/packages/app/lib/main.dart"),
+                      "${workspaceRoots.ideWorkspaceRoots.first.toFilePath()}/lib/main.dart"),
                 );
 
                 debugPrint('$content');
@@ -65,7 +65,7 @@ class Utils extends StatelessWidget {
               if (workspaceRoots!.ideWorkspaceRoots.firstOrNull != null) {
                 dtdManager.connection.value!.writeFileAsString(
                   Uri.file(
-                      "${workspaceRoots.ideWorkspaceRoots.first.toFilePath()}/packages/app/lib/screen/home/home_screen.dart"),
+                      "${workspaceRoots.ideWorkspaceRoots.first.toFilePath()}/lib/screen/home/home_screen.dart"),
                   """
 import 'package:app/component/graphql_query_container.dart';
 import 'package:app/screen/detail/detail_screen.dart';
